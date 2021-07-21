@@ -1,5 +1,5 @@
 {
-  "name": "nodecg-react",
+  "name": "headpat",
   "version": "0.1.0",
   "description": "A boilerplate bundle to get started with NodeCG, React and Flux.",
   "homepage": "https://github.com/mkrl/nodecg-react",
@@ -24,6 +24,13 @@
     "compatibleRange": "^1.1.1",
     "dashboardPanels": [
       {
+        "name": "headpat",
+        "title": "Headpat",
+        "width": 2,
+        "file": "headpat.html",
+        "headerColor": "#525F78"
+      },
+      {
         "name": "panel",
         "title": "NodeCG React",
         "width": 2,
@@ -43,9 +50,10 @@
   "repository": "git@github.com:mkrl/nodecg-react.git",
   "license": "MIT",
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
+    "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.14.8",
+    "@babel/preset-env": "^7.14.8",
+    "@babel/preset-react": "^7.14.5",
     "parcel-bundler": "^1.12.3"
   },
   "dependencies": {
@@ -55,7 +63,8 @@
     "react-dom": "^16.8.6"
   },
   "scripts": {
-    "start": "parcel watch src/index.html -d graphics --public-url ./",
-    "build": "parcel build src/index.html -d graphics --public-url ./"
+    "babel-build": "babel extension/src -d extension/lib",
+    "start": "yarn babel-build && parcel watch src/index.html -d graphics --public-url ./",
+    "build": "yarn babel-build && parcel build src/index.html -d graphics --public-url ./"
   }
 }
